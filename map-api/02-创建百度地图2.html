@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript"
+        src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=kaMHgMekRCJYYyXxqulst1SAMdV9mySc"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        #app {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+</html>
+<script>
+    // 1. 初始化百度地图实例对象, 并指定渲染的画布
+    const map = new BMapGL.Map("app")
+
+    // 2. 设置百度地图的中心点
+    const point = new BMapGL.Point(116.404, 39.915)
+
+    // 3. 渲染百度地图
+    map.centerAndZoom(point, 15)
+
+    // 4. 设置地图能够进行滚轮的放大与缩小(开启滚轮 缩放)
+    map.enableScrollWheelZoom(true);
+
+    // 5.设置地图旋转的角度
+    map.setHeading(64.5);
+
+    // 6. 设置地图倾斜的角度
+    map.setTilt(73);
+
+
+
+</script>
