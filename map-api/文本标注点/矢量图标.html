@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+    <script src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=kaMHgMekRCJYYyXxqulst1SAMdV9mySc"
+            type="text/javascript"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        #app {
+            height: 100%;
+        }
+
+        .name {
+            color: red;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+
+            height: 100px;
+            /*border-radius: 50px !important;*/
+            position: relative;
+        }
+
+        .arrow {
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app"></div>
+
+
+</body>
+
+</html>
+<script>
+
+
+    // 1. 初始化百度地图实例对象, 并指定渲染的画布
+    const map = new BMapGL.Map("app")
+    // 2. 设置中心点
+    let point = new BMapGL.Point(116.215473, 40.142709)
+
+
+    //设置maker机型为飞机形
+    const marker1 = new BMapGL.Marker(point,
+        {
+            icon: new BMapGL.SVGSymbol("m0,-10c-0.20885,0 -0.39491,0.08583 -0.55177,0.24149c-0.15674,0.15536 -0.28646,0.37838 -0.39429,0.65665c-0.21586,0.55655 -0.34853,1.33844 -0.42114,2.27477c-0.07231,0.93446 -0.08474,2.02273 -0.05447,3.18765c-2.58175,1.05925 -7.81787,3.24648 -8.23854,3.73474c-0.56001,0.65029 -0.37908,1.3954 -0.15331,1.89002l8.608,-1.75235c0.18202,2.28374 0.4407,4.5455 0.66615,6.31771c-0.8418,0.24646 -2.41323,0.73303 -2.73754,1.03474c-0.4469,0.41562 -0.4469,1.75793 -0.4469,1.75793l3.52318,-0.28665c0.08286,0.57874 0.13486,0.9163 0.13486,0.9163l0.00511,0.03042l0.02778,0l0.06486,0l0.02778,0l0.00511,-0.03042c0,0 0.05185,-0.33756 0.13486,-0.9163l3.52424,0.28665c0,0 0,-1.34231 -0.44688,-1.75793c-0.32446,-0.30172 -1.89697,-0.7895 -2.73847,-1.0358c0.22484,-1.76681 0.4832,-4.02001 0.66507,-6.29634l8.50712,1.73203c0.22561,-0.49462 0.40765,-1.23973 -0.15237,-1.89002c-0.41538,-0.48221 -5.52504,-2.62071 -8.1386,-3.69423c0.03119,-1.17999 0.01971,-2.28285 -0.05353,-3.22816l0,-0.00233c-0.07263,-0.93523 -0.20545,-1.71635 -0.42114,-2.27244c-0.10784,-0.27827 -0.23634,-0.50114 -0.3932,-0.65665c-0.15689,-0.15567 -0.34293,-0.24149 -0.55195,-0.24149l0,0l0,0l0,0l0.00001,0l0,0l-0.00003,0.00001z",
+                {
+                    fillColor: '#E4F4F4', fillOpacity: 0.8, scale: 3, rotation: 0, strokeOpacity: 1
+                })
+        });
+
+    map.addOverlay(marker1)
+    // 3. 渲染百度地图
+    map.centerAndZoom(point, 15)
+
+    // 4. 设置地图能够进行滚轮的放大与缩小(开启滚轮 缩放)
+    map.enableScrollWheelZoom(true);
+
+    // 5.设置地图旋转的角度
+    map.setHeading(64.5);
+
+    // 6. 设置地图倾斜的角度
+    map.setTilt(73);
+
+
+</script>
